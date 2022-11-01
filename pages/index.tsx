@@ -1,5 +1,10 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  margin-top: 3rem;
+`;
 
 export default function Home() {
   return (
@@ -14,6 +19,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">TVNZ!</a>
         </h1>
+        <StyledDiv>Fwfwfw</StyledDiv>
       </main>
 
       <footer className={styles.footer}>
