@@ -18,7 +18,7 @@ const StyledButton = styled.button`
   font-family: "Black Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 0.875px;
   text-transform: uppercase;
 
@@ -61,10 +61,10 @@ const StyledButton = styled.button`
   &.circle {
     border-radius: 9001px;
     padding: 1rem;
-    max-height: 50px;
-    max-width: 50px;
-    height: 50px;
-    width: 50px;
+    max-height: 3.125rem;
+    max-width: 3.125rem;
+    height: 3.125rem;
+    width: 3.125rem;
   }
 
   /* my list animations */
