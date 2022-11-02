@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "black_sans", "Helvetica Neue", Helvetica, sans-serif;
 
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     linear-gradient(62.24deg, #111111 0%, rgba(9, 15, 54, 0) 99.98%),
@@ -32,4 +31,81 @@ a {
   body {
     color: white;
   }
+}
+
+h2 {
+  letter-spacing: 1px;
+}
+
+/**************************************
+  $FONTS
+  NOTE: Used heavily in 'base/elements/typography.scss'
+**************************************/
+
+@font-face {
+  font-family: "black_sans";
+  src: url("/assets/fonts/blacksans-bold-webfont.woff2") format("woff2"),
+    url("/assets/fonts/blacksans-bold-webfont.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans";
+  src: url("/assets/fonts/blacksans-semibold-webfont.woff2") format("woff2"),
+    url("/assets/fonts/blacksans-semibold-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans";
+  src: url("/assets/fonts/blacksans-regular-webfont.woff2") format("woff2"),
+    url("/assets/fonts/blacksans-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans";
+  src: url("/assets/fonts/blacksans-light-webfont.woff2") format("woff2"),
+    url("/assets/fonts/blacksans-light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans_condensed";
+  src: url("/assets/fonts/blacksans-condensedbold-webfont.woff2")
+      format("woff2"),
+    url("/assets/fonts/blacksans-condensedbold-webfont.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans_condensed";
+  src: url("/assets/fonts/blacksans-condensedmedium-webfont.woff2")
+      format("woff2"),
+    url("/assets/fonts/blacksans-condensedmedium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans_condensed";
+  src: url("/assets/fonts/blacksans-condensedbook-webfont.woff2")
+      format("woff2"),
+    url("/assets/fonts/blacksans-condensedbook-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "black_sans_condensed";
+  src: url("/assets/fonts/blacksans-condensedlight-webfont.woff2")
+      format("woff2"),
+    url("/assets/fonts/blacksans-condensedlight-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
