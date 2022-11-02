@@ -67,6 +67,11 @@ export default function Home() {
               className={faved1 ? "in-my-list" : "not-in-my-list"}
               onClick={() => setFaved1(!faved1)}
             />
+            <Button
+              text="Trailer"
+              icon="/icon-trailer.svg"
+              variant="secondary"
+            />
 
             {/* outline button */}
             <Button text="What's New" variant="outline" />
