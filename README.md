@@ -1,6 +1,6 @@
 # Buttons
 
-<img width="1208" alt="image" src="https://user-images.githubusercontent.com/84168186/199381673-35d9a568-3e92-45ab-bc9a-1bfb377b2400.png">
+<img width="1097" alt="image" src="https://user-images.githubusercontent.com/84168186/199383441-31f5a69c-2435-421d-891c-21cf10a9cb69.png">
 
 ## Getting Started
 
