@@ -1,5 +1,6 @@
 import Button from "../components/button/button";
 import Head from "next/head";
+import Link from "../components/link/link";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
@@ -53,11 +54,13 @@ export default function Home() {
             <h2>Normal Buttons</h2>
 
             {/* primary button */}
-            <Button
-              text="Watch Now"
-              icon="/icon-play.svg"
-              onClick={() => window.alert("click handler 1")}
-            />
+            <Link href="/" target="_blank">
+              <Button
+                text="Watch Now"
+                icon="/icon-play.svg"
+                onClick={() => window.alert("click handler 1")}
+              />
+            </Link>
 
             {/* secondary button */}
             <Button
@@ -67,11 +70,13 @@ export default function Home() {
               className={faved1 ? "in-my-list" : "not-in-my-list"}
               onClick={() => setFaved1(!faved1)}
             />
-            <Button
-              text="Trailer"
-              icon="/icon-trailer.svg"
-              variant="secondary"
-            />
+            <Link href="/">
+              <Button
+                text="Trailer"
+                icon="/icon-trailer.svg"
+                variant="secondary"
+              />
+            </Link>
 
             {/* outline button */}
             <Button text="What's New" variant="outline" />
@@ -97,9 +102,13 @@ export default function Home() {
 
           <div className="col">
             <h2>Test Stuff</h2>
-
             {/* test button */}
             <Button text="classname test" variant="outline" className="test" />
+
+            <br />
+
+            <h3>Text Link</h3>
+            <Link href="/">This is a test text link</Link>
           </div>
         </StyledDiv>
       </main>
