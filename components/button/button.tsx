@@ -119,7 +119,7 @@ const Button = ({
   onClick,
   isSelected = false,
   variant = "primary",
-  className,
+  className = "",
 }: {
   text?: string;
   icon?: string;

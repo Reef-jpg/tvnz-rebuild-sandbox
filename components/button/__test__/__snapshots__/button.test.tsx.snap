@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Tests should match snapshot 1`] = `
+<button
+  className="button__StyledButton-sc-1476jkj-0 eiBwjk button selected 
+        secondary test"
+  onClick={[Function]}
+>
+  <span
+    className="icon"
+  >
+    <img
+      alt="icon"
+      src="/test.svg"
+    />
+  </span>
+  <span
+    className="text"
+  >
+    Test
+  </span>
+</button>
+`;
