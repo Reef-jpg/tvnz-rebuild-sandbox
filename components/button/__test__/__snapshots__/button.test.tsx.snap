@@ -2,7 +2,7 @@
 
 exports[`Button Tests should match snapshot 1`] = `
 <button
-  className="button__StyledButton-sc-1476jkj-0 eiBwjk button selected 
+  className="button__StyledButton-sc-1476jkj-0 bXdlHz button selected 
         secondary test"
   onClick={[Function]}
 >
