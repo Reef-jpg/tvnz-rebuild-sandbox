@@ -20,4 +20,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 I've added some unit tests and snapshots
 
-<img width="608" alt="image" src="https://user-images.githubusercontent.com/84168186/200196796-da31c69d-4263-4d1d-a988-e9b4e622712f.png">
+![image](https://user-images.githubusercontent.com/84168186/200428965-d7ac54a0-b97f-4c5f-b1c4-d7ee8c86b1eb.png)
+
