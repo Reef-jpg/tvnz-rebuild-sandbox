@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button Tests should match snapshot 1`] = `
+exports[`Button Component should match snapshots 1`] = `
 <button
   className="button__StyledButton-sc-1476jkj-0 bXdlHz button selected 
         secondary test"
@@ -10,7 +10,7 @@ exports[`Button Tests should match snapshot 1`] = `
     className="icon"
   >
     <img
-      alt="icon"
+      alt="test icon alt text"
       src="/test.svg"
     />
   </span>
@@ -20,4 +20,11 @@ exports[`Button Tests should match snapshot 1`] = `
     Test
   </span>
 </button>
+`;
+
+exports[`Button Component should match snapshots 2`] = `
+<button
+  className="button__StyledButton-sc-1476jkj-0 bXdlHz button  
+        primary "
+/>
 `;

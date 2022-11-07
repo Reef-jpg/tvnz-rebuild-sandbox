@@ -1,11 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button Tests should match snapshot 1`] = `
+exports[`Link Component should match snapshots 1`] = `
 <a
   className="link__StyledLink-sc-k5dztf-0 iaSPK link snapshot test"
   href="/test"
   target="_parent"
 >
   Snapshot Test
+</a>
+`;
+
+exports[`Link Component should match snapshots 2`] = `
+<a
+  className="link__StyledLink-sc-k5dztf-0 iaSPK link "
+  href="/test2"
+>
+  Snapshot Test 2
+</a>
+`;
+
+exports[`Link Component should match snapshots 3`] = `
+<a
+  className="link__StyledLink-sc-k5dztf-0 iaSPK link "
+  href="/mixed-test"
+>
+  <button>
+    Test Mix
+  </button>
+  <button>
+    Test Mix
+  </button>
+  Test Mix
 </a>
 `;

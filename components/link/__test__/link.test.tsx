@@ -1,11 +1,10 @@
 import "@testing-library/jest-dom";
 
-import { fireEvent, render, screen } from "@testing-library/react";
-
 import Link from "../link";
+import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
-describe("Button Tests", () => {
+describe("Link Component", () => {
   test("should render", () => {
     const { container } = render(<Link href="">Test</Link>);
 
@@ -13,39 +12,39 @@ describe("Button Tests", () => {
   });
 
   test("should render children (string)", () => {
-    render(<Link href="">Test Link</Link>);
+    const { getByText } = render(<Link href="">Test Link</Link>);
 
-    expect(screen.getByText("Test Link")).toBeInTheDocument();
+    expect(getByText("Test Link")).toBeInTheDocument();
   });
 
   test("should render children (element)", () => {
-    render(
+    const { getByText } = render(
       <Link href="">
         <button>Test Element</button>
       </Link>
     );
 
-    expect(screen.getByText("Test Element")).toBeInTheDocument();
+    expect(getByText("Test Element")).toBeInTheDocument();
   });
 
   test("should render children (jsx element)", () => {
     const Button = () => {
       return <button>Test Jsx</button>;
     };
-    render(
+    const { getByText } = render(
       <Link href="">
         <Button />
       </Link>
     );
 
-    expect(screen.getByText("Test Jsx")).toBeInTheDocument();
+    expect(getByText("Test Jsx")).toBeInTheDocument();
   });
 
   test("should render children (mixed)", () => {
     const Button = () => {
       return <button>Test Mix</button>;
     };
-    render(
+    const { getAllByText } = render(
       <Link href="">
         <Button />
         <button>Test Mix</button>
@@ -53,7 +52,7 @@ describe("Button Tests", () => {
       </Link>
     );
 
-    expect(screen.getAllByText("Test Mix").length).toEqual(3);
+    expect(getAllByText("Test Mix").length).toEqual(3);
   });
 
   test("should have href", () => {
@@ -95,8 +94,8 @@ describe("Button Tests", () => {
     expect(container.querySelector(".link")).not.toHaveClass("undefined");
   });
 
-  test("should match snapshot", () => {
-    const tree = renderer
+  test("should match snapshots", () => {
+    const withProps = renderer
       .create(
         <Link href="/test" target="_parent" className="snapshot test">
           Snapshot Test
@@ -104,6 +103,26 @@ describe("Button Tests", () => {
       )
       .toJSON();
 
-    expect(tree).toMatchSnapshot();
+    const withoutProps = renderer
+      .create(<Link href="/test2">Snapshot Test 2</Link>)
+      .toJSON();
+
+    // snapshot of mixed type children
+    const Button = () => {
+      return <button>Test Mix</button>;
+    };
+    const mixed = renderer
+      .create(
+        <Link href="/mixed-test">
+          <Button />
+          <button>Test Mix</button>
+          Test Mix
+        </Link>
+      )
+      .toJSON();
+
+    expect(withProps).toMatchSnapshot();
+    expect(withoutProps).toMatchSnapshot();
+    expect(mixed).toMatchSnapshot();
   });
 });

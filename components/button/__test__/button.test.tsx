@@ -1,30 +1,11 @@
 import "@testing-library/jest-dom";
 
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import renderer, { act } from "react-test-renderer";
 
 import Button from "../button";
-import renderer from "react-test-renderer";
-import { useState } from "react";
+import { render } from "@testing-library/react";
 
-describe("Button Tests", () => {
-  beforeEach(() => {
-    const TestButton = () => {
-      const [state, setState] = useState(0);
-      return (
-        <Button
-          text={`test: ${state}`}
-          icon="/icon-mylist.svg"
-          variant="secondary circle"
-          className="test"
-          onClick={() => setState(state + 1)}
-          isSelected={true}
-        />
-      );
-    };
-
-    render(<TestButton />);
-  });
-
+describe("Button Component", () => {
   test("test defaults", () => {
     const { container } = render(<Button />);
 
@@ -34,35 +15,62 @@ describe("Button Tests", () => {
   });
 
   test("should have text", () => {
-    expect(screen.getByText(/test/)).toBeInTheDocument();
+    const { getByText } = render(<Button text="test" />);
+
+    expect(getByText("test")).toBeInTheDocument();
+  });
+
+  test("should have image and alt text", () => {
+    const { getByAltText } = render(
+      <Button icon="/test.svg" iconAlt="Test Button Alt" />
+    );
+
+    expect(getByAltText("Test Button Alt")).toBeInTheDocument();
+    expect(getByAltText("Test Button Alt")).toHaveAttribute("src", "/test.svg");
   });
 
   test("should have classNames", () => {
-    expect(screen.getByRole("button")).toHaveClass("test");
-    expect(screen.getByRole("button")).toHaveClass("secondary");
-    expect(screen.getByRole("button")).toHaveClass("circle");
-    expect(screen.getByRole("button")).toHaveClass("selected");
+    const { getByRole } = render(
+      <Button variant="secondary circle" className="test" isSelected={true} />
+    );
+
+    expect(getByRole("button")).toHaveClass("test");
+    expect(getByRole("button")).toHaveClass("secondary");
+    expect(getByRole("button")).toHaveClass("circle");
+    expect(getByRole("button")).toHaveClass("selected");
   });
 
   test("should be no undefined classNames", () => {
-    cleanup();
-    render(<Button text="undefined test" />);
+    const { getByText, container } = render(
+      <Button text="undefined test" icon="/undefined.svg" />
+    );
 
-    expect(screen.getByRole("button")).not.toHaveClass("undefined");
+    expect(getByText("undefined test").closest("button")).not.toHaveClass(
+      "undefined"
+    );
+    expect(container.querySelector(".text")).not.toHaveClass("undefined");
+    expect(container.querySelector(".icon")).not.toHaveClass("undefined");
   });
 
   test("onclick handler should work", () => {
-    expect(screen.getByText("test: 0")).toBeInTheDocument();
-    fireEvent.click(screen.getByText("test: 0"));
-    expect(screen.getByText("test: 1")).toBeInTheDocument();
+    const mock = jest.fn();
+    const { getByRole } = render(<Button onClick={mock} />);
+
+    act(() => {
+      getByRole("button").click();
+      getByRole("button").click();
+      getByRole("button").click();
+    });
+    expect(mock).toBeCalledTimes(3);
   });
 
-  test("should match snapshot", () => {
-    const tree = renderer
+  test("should match snapshots", () => {
+    const withProps = renderer
       .create(
         <Button
           text="Test"
           icon="/test.svg"
+          iconAlt="test icon alt text"
           variant="secondary"
           className="test"
           isSelected={true}
@@ -71,6 +79,9 @@ describe("Button Tests", () => {
       )
       .toJSON();
 
-    expect(tree).toMatchSnapshot();
+    const withoutProps = renderer.create(<Button />).toJSON();
+
+    expect(withProps).toMatchSnapshot();
+    expect(withoutProps).toMatchSnapshot();
   });
 });

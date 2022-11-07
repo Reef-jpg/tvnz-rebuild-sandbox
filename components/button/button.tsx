@@ -114,6 +114,7 @@ type ButtonVariant =
 const Button = ({
   text = "",
   icon = "",
+  iconAlt = "Button Icon",
   onClick,
   isSelected = false,
   variant = "primary",
@@ -121,6 +122,7 @@ const Button = ({
 }: {
   text?: string;
   icon?: string;
+  iconAlt?: string;
   onClick?: () => void;
   isSelected?: boolean;
   variant?: ButtonVariant;
@@ -135,7 +137,7 @@ const Button = ({
       {/* icon */}
       {icon && (
         <span className="icon">
-          <img src={icon} alt="icon" />
+          <img src={icon} alt={iconAlt} />
         </span>
       )}
       {/* text */}
