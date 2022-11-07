@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  max-height: 2.5rem;
-  height: 2.5rem;
-  padding: 0.75rem 1.1875rem;
+  padding: 0.8rem 1.1875rem;
 
   display: flex;
   justify-content: center;
