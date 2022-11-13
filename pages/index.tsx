@@ -1,6 +1,6 @@
-import Button from "../components/button/button";
+import { Button } from "../components/button/button";
 import Head from "next/head";
-import Link from "../components/link/link";
+import { Link } from "../components/link/link";
 import styled from "styled-components";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";

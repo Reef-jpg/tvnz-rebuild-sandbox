@@ -111,7 +111,7 @@ type ButtonVariant =
   | "secondary circle"
   | "outline circle";
 
-const Button = ({
+export const Button = ({
   text = "",
   icon = "",
   iconAlt = "Button Icon",
@@ -145,5 +145,3 @@ const Button = ({
     </StyledButton>
   );
 };
-
-export default Button;

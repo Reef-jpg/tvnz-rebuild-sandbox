@@ -8,7 +8,7 @@ const StyledLink = styled.a`
 
 type LinkTarget = "_blank" | "_self" | "_parent" | "_top";
 
-const Link = ({
+export const Link = ({
   href,
   target,
   children,
@@ -25,5 +25,3 @@ const Link = ({
     </StyledLink>
   );
 };
-
-export default Link;

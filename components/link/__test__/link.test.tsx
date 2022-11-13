@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 
-import Link from "../link";
+import { Link } from "../link";
 import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
