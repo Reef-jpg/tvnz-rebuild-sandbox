@@ -4,15 +4,7 @@ body {
   margin: 0;
   font-family: "black_sans", "Helvetica Neue", Helvetica, sans-serif;
 
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    linear-gradient(62.24deg, #111111 0%, rgba(9, 15, 54, 0) 99.98%),
-    linear-gradient(
-      338.58deg,
-      rgba(255, 69, 217, 0.9) 4.53%,
-      rgba(255, 69, 217, 0.252) 35.14%,
-      rgba(255, 69, 217, 0) 51.18%
-    ),
-    linear-gradient(217.42deg, #2747f2 -8.12%, #090f36 75.37%);
+  background-color: #111;
 }
 
 a {

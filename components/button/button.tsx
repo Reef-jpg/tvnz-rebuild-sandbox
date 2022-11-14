@@ -68,6 +68,8 @@ const StyledButton = styled.button`
   /* my list animations */
   &.in-my-list {
     .icon {
+      height: 14px;
+      width: 14px;
       animation-name: squeeze1;
       animation-duration: 0.6s;
       animation-iteration-count: 1;
