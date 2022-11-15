@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Component should match snapshots 1`] = `
+<div
+  className="hero__StyledDiv-sc-s6ikjf-0 iIBPSw hero"
+>
+  <div
+    className="image-wrapper"
+  >
+    <img
+      alt="Pic of a test"
+      src="/test-bg.jpg"
+    />
+  </div>
+  <div
+    className="content"
+  >
+    <div
+      className="subTitle"
+    >
+      TEST
+    </div>
+    <h1
+      className="title"
+    >
+      Hero Test
+    </h1>
+    <p
+      className="description"
+    >
+      Description
+    </p>
+    <div
+      className="buttons"
+    >
+      <button
+        className="button__StyledButton-sc-1476jkj-0 gjWxqu button  
+        primary "
+      >
+        <span
+          className="icon"
+        >
+          <img
+            alt="Button Icon"
+            src="/icon-play.svg"
+          />
+        </span>
+        <span
+          className="text"
+        >
+          watch now
+        </span>
+      </button>
+      <button
+        className="button__StyledButton-sc-1476jkj-0 gjWxqu button  
+        secondary not-in-my-list"
+        onClick={[Function]}
+      >
+        <span
+          className="icon"
+        >
+          <img
+            alt="Button Icon"
+            src="/icon-mylist.svg"
+          />
+        </span>
+        <span
+          className="text"
+        >
+          My List
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
