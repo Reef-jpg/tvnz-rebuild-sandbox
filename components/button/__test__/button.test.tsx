@@ -22,7 +22,7 @@ describe("Button Component", () => {
 
   test("should have image and alt text", () => {
     const { getByAltText } = render(
-      <Button icon="/test.svg" iconAlt="Test Button Alt" />
+      <Button icon="/test.svg" iconAlternativeText="Test Button Alt" />
     );
 
     expect(getByAltText("Test Button Alt")).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe("Button Component", () => {
         <Button
           text="Test"
           icon="/test.svg"
-          iconAlt="test icon alt text"
+          iconAlternativeText="test icon alt text"
           variant="secondary"
           className="test"
           isSelected={true}

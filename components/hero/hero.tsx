@@ -87,13 +87,13 @@ export const Hero = ({
   title,
   description,
   image,
-  imageAlt = "Hero Image",
+  imageAlternativeText = "Hero Image",
   subTitle,
 }: {
   title: string;
   description: string;
   image: string;
-  imageAlt?: string;
+  imageAlternativeText?: string;
   subTitle?: string;
 }) => {
   const [faved, setFaved] = useState<boolean>(false);
@@ -106,7 +106,7 @@ export const Hero = ({
     <StyledDiv className="hero">
       {/* hero splash image */}
       <div className="image-wrapper">
-        <img src={image} alt={imageAlt} />
+        <img src={image} alt={imageAlternativeText} />
       </div>
 
       {/* content section of hero */}

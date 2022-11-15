@@ -37,7 +37,7 @@ describe("Hero Component", () => {
         title=""
         description=""
         image="/test.jpg"
-        imageAlt="test hero alt text"
+        imageAlternativeText="test hero alt text"
       />
     );
 

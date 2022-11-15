@@ -47,7 +47,7 @@ export default function Home() {
         title="Tulsa King"
         description={`Original gangster, new town. Sylvester Stallone stars as Dwight "The General" Manfredi, a Mafia bigshot who's unceremoniously exiled to Tulsa, after serving 25 years in prison. `}
         image="/hero-bg.jpg"
-        imageAlt="Pic of the King of Tulsa"
+        imageAlternativeText="Pic of the King of Tulsa"
         subTitle="NEW SEASON"
       />
 

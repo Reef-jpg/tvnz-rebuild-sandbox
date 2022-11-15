@@ -116,7 +116,7 @@ type ButtonVariant =
 export const Button = ({
   text = "",
   icon = "",
-  iconAlt = "Button Icon",
+  iconAlternativeText = "Button Icon",
   onClick,
   isSelected = false,
   variant = "primary",
@@ -124,7 +124,7 @@ export const Button = ({
 }: {
   text?: string;
   icon?: string;
-  iconAlt?: string;
+  iconAlternativeText?: string;
   onClick?: () => void;
   isSelected?: boolean;
   variant?: ButtonVariant;
@@ -139,7 +139,7 @@ export const Button = ({
       {/* icon */}
       {icon && (
         <span className="icon">
-          <img src={icon} alt={iconAlt} />
+          <img src={icon} alt={iconAlternativeText} />
         </span>
       )}
       {/* text */}
