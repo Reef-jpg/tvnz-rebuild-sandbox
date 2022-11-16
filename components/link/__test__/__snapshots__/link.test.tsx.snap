@@ -2,7 +2,7 @@
 
 exports[`Link Component should match snapshots 1`] = `
 <a
-  className="link__StyledLink-sc-k5dztf-0 iaSPK link snapshot test"
+  className="link__StyledLink-sc-k5dztf-0 jZDYYg link snapshot test"
   href="/test"
   target="_parent"
 >
@@ -12,7 +12,7 @@ exports[`Link Component should match snapshots 1`] = `
 
 exports[`Link Component should match snapshots 2`] = `
 <a
-  className="link__StyledLink-sc-k5dztf-0 iaSPK link "
+  className="link__StyledLink-sc-k5dztf-0 jZDYYg link "
   href="/test2"
 >
   Snapshot Test 2
@@ -21,7 +21,7 @@ exports[`Link Component should match snapshots 2`] = `
 
 exports[`Link Component should match snapshots 3`] = `
 <a
-  className="link__StyledLink-sc-k5dztf-0 iaSPK link "
+  className="link__StyledLink-sc-k5dztf-0 jZDYYg link "
   href="/mixed-test"
 >
   <button>

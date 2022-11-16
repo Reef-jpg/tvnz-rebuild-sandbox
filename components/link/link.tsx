@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 
 const StyledLink = styled.a`
-  display: inline-flex;
+  display: inherit;
   text-decoration: none;
 `;
 
