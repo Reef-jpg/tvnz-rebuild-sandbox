@@ -2,7 +2,7 @@
 
 exports[`Button Component should match snapshots 1`] = `
 <button
-  className="button__StyledButton-sc-1476jkj-0 gjWxqu button selected 
+  className="button__StyledButton-sc-1476jkj-0 iOnKIy button selected 
         secondary test"
   onClick={[Function]}
 >
@@ -24,7 +24,7 @@ exports[`Button Component should match snapshots 1`] = `
 
 exports[`Button Component should match snapshots 2`] = `
 <button
-  className="button__StyledButton-sc-1476jkj-0 gjWxqu button  
+  className="button__StyledButton-sc-1476jkj-0 iOnKIy button  
         primary "
 />
 `;

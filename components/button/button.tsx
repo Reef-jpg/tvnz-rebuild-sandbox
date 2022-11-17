@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -68,8 +69,9 @@ const StyledButton = styled.button`
   /* my list animations */
   &.in-my-list {
     .icon {
-      height: 14px;
-      width: 14px;
+      height: 16px;
+      width: 16px;
+      transform: scale(0.7);
       animation-name: squeeze1;
       animation-duration: 0.6s;
       animation-iteration-count: 1;
@@ -87,6 +89,8 @@ const StyledButton = styled.button`
   }
   &.not-in-my-list {
     .icon {
+      height: 16px;
+      width: 16px;
       animation-name: squeeze2;
       animation-duration: 0.6s;
       animation-iteration-count: 1;
@@ -125,7 +129,7 @@ export const Button = ({
   text?: string;
   icon?: string;
   iconAlternativeText?: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler;
   isSelected?: boolean;
   variant?: ButtonVariant;
   className?: string;
