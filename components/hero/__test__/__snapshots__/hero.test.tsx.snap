@@ -2,7 +2,8 @@
 
 exports[`Hero Component should match snapshots 1`] = `
 <div
-  className="hero__StyledDiv-sc-s6ikjf-0 iIBPSw hero"
+  className="hero__StyledDiv-sc-s6ikjf-0 dKJFNe hero"
+  onClick={[Function]}
 >
   <div
     className="image-wrapper"
@@ -16,7 +17,7 @@ exports[`Hero Component should match snapshots 1`] = `
     className="content"
   >
     <div
-      className="subTitle"
+      className="sub-title"
     >
       TEST
     </div>
@@ -33,26 +34,31 @@ exports[`Hero Component should match snapshots 1`] = `
     <div
       className="buttons"
     >
-      <button
-        className="button__StyledButton-sc-1476jkj-0 gjWxqu button  
-        primary "
+      <a
+        className="link__StyledLink-sc-k5dztf-0 jZDYYg link "
+        href="/button"
       >
-        <span
-          className="icon"
+        <button
+          className="button__StyledButton-sc-1476jkj-0 iOnKIy button  
+        primary "
         >
-          <img
-            alt="Button Icon"
-            src="/icon-play.svg"
-          />
-        </span>
-        <span
-          className="text"
-        >
-          watch now
-        </span>
-      </button>
+          <span
+            className="icon"
+          >
+            <img
+              alt="Button Icon"
+              src="/icon-play.svg"
+            />
+          </span>
+          <span
+            className="text"
+          >
+            watch now
+          </span>
+        </button>
+      </a>
       <button
-        className="button__StyledButton-sc-1476jkj-0 gjWxqu button  
+        className="button__StyledButton-sc-1476jkj-0 iOnKIy button  
         secondary not-in-my-list"
         onClick={[Function]}
       >
@@ -67,7 +73,7 @@ exports[`Hero Component should match snapshots 1`] = `
         <span
           className="text"
         >
-          My List
+          my list
         </span>
       </button>
     </div>

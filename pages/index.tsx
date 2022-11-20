@@ -49,6 +49,13 @@ export default function Home() {
         image="/hero-bg.jpg"
         imageAlternativeText="Pic of the King of Tulsa"
         subTitle="NEW SEASON"
+        heroLink="/hero"
+        buttonLink="/button"
+        sponsorLogo={{
+          link: "/",
+          image: "/mcd.png",
+          label: "Proud Sponsor",
+        }}
       />
 
       <div className={styles.container}>

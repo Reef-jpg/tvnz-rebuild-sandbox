@@ -1,12 +1,15 @@
+import { MouseEvent, MouseEventHandler, useState } from "react";
+
 import { Button } from "../button/button";
+import { Link } from "../link/link";
 import styled from "styled-components";
-import { useState } from "react";
 
 const StyledDiv = styled.div`
   width: 100%;
   min-height: 380px;
 
   position: relative;
+  cursor: pointer;
 
   /* image styling */
   .image-wrapper {
@@ -64,7 +67,7 @@ const StyledDiv = styled.div`
       font-weight: 300;
       line-height: 21px;
     }
-    .subTitle {
+    .sub-title {
       margin-bottom: 0.5rem;
       font-weight: 500;
       letter-spacing: 1px;
@@ -80,6 +83,30 @@ const StyledDiv = styled.div`
         margin-right: 1rem;
       }
     }
+
+    .sponsor {
+      /* scaling to 0.5x as the API is always meant to provide a 2x resolution image for this spot (see PLAY-3837) */
+      transform: scale(0.5) translate(50%, 50%);
+
+      margin-right: 4.75rem;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      display: flex;
+      flex-direction: column;
+
+      .label {
+        /* double everything to offset the 0.5x of parent wrapper */
+        margin-bottom: calc(4px * 2);
+        font-size: calc(14px * 2);
+        color: #bfbfbf;
+      }
+      .link {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 `;
 
@@ -89,21 +116,41 @@ export const Hero = ({
   image,
   imageAlternativeText = "Hero Image",
   subTitle,
+  heroLink,
+  buttonLink,
+  sponsorLogo,
 }: {
   title: string;
   description: string;
   image: string;
   imageAlternativeText?: string;
   subTitle?: string;
+  heroLink: string;
+  buttonLink: string;
+  sponsorLogo?: { label?: string; link: string; image: string };
 }) => {
+  // state for my list button
   const [faved, setFaved] = useState<boolean>(false);
 
-  const favHandler = () => {
+  // click handlers
+  const heroLinkHandler: MouseEventHandler = (event: MouseEvent) => {
+    // only follow link if one of these elements was clicked
+    const selectorsToLink = ["content", "description", "title", "sub-title"];
+    if (
+      heroLink &&
+      selectorsToLink.some((x) =>
+        (event?.target as HTMLElement)?.classList.contains(x)
+      )
+    )
+      window.location.assign(heroLink);
+  };
+
+  const myListHandler = () => {
     setFaved(!faved);
   };
 
   return (
-    <StyledDiv className="hero">
+    <StyledDiv className="hero" onClick={heroLinkHandler}>
       {/* hero splash image */}
       <div className="image-wrapper">
         <img src={image} alt={imageAlternativeText} />
@@ -112,21 +159,40 @@ export const Hero = ({
       {/* content section of hero */}
       <div className="content">
         {/* text */}
-        {subTitle && <div className="subTitle">{subTitle}</div>}
+        {subTitle && <div className="sub-title">{subTitle}</div>}
         <h1 className="title">{title}</h1>
         <p className="description">{description}</p>
 
         {/* buttons */}
         <div className="buttons">
-          <Button text="watch now" icon="/icon-play.svg" />
+          <Link href={buttonLink}>
+            <Button text="watch now" icon="/icon-play.svg" />
+          </Link>
+
           <Button
-            text="My List"
+            text="my list"
             icon={faved ? "/icon-mylist-tick.svg" : "/icon-mylist.svg"}
             variant="secondary"
             className={faved ? "in-my-list" : "not-in-my-list"}
-            onClick={favHandler}
+            onClick={myListHandler}
           />
         </div>
+
+        {/* sponsor ad */}
+        {sponsorLogo && (
+          <div className="sponsor">
+            <Link
+              href={sponsorLogo.link}
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <p className="label">
+                {sponsorLogo.label ? sponsorLogo.label : "Proud Sponsor"}
+              </p>
+              <img src={sponsorLogo.image} alt="Sponsor Logo" />
+            </Link>
+          </div>
+        )}
       </div>
     </StyledDiv>
   );

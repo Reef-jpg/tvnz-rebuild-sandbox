@@ -7,7 +7,9 @@ import { render } from "@testing-library/react";
 
 describe("Hero Component", () => {
   test("should render", () => {
-    const { container } = render(<Hero title="" description="" image="" />);
+    const { container } = render(
+      <Hero title="" description="" image="" heroLink="" buttonLink="" />
+    );
 
     expect(container.querySelector(".hero")).toBeTruthy();
     expect(container.querySelector(".hero")).toBeVisible();
@@ -20,6 +22,8 @@ describe("Hero Component", () => {
         subTitle="Sub Test"
         description=""
         image=""
+        heroLink=""
+        buttonLink=""
       />
     );
 
@@ -31,7 +35,13 @@ describe("Hero Component", () => {
 
   test("should have description", () => {
     const { getByText } = render(
-      <Hero title="" description="hero desc" image="" />
+      <Hero
+        title=""
+        description="hero desc"
+        image=""
+        heroLink=""
+        buttonLink=""
+      />
     );
 
     expect(getByText("hero desc")).toBeInTheDocument();
@@ -45,6 +55,8 @@ describe("Hero Component", () => {
         description=""
         image="/test.jpg"
         imageAlternativeText="test hero alt text"
+        heroLink=""
+        buttonLink=""
       />
     );
 
@@ -52,20 +64,137 @@ describe("Hero Component", () => {
     expect(getByAltText("test hero alt text")).toBeVisible();
   });
 
-  test("click handler for my list should work", () => {
+  test("should render buttons", () => {
     const { getByText } = render(
-      <Hero title="Test Hero State" description="" image="" />
+      <Hero
+        title=""
+        description=""
+        image=""
+        heroLink="/hero"
+        buttonLink="/button"
+      />
     );
 
-    expect(getByText("My List").closest("button")).toHaveClass(
-      "not-in-my-list"
+    expect(getByText("watch now")).toBeVisible();
+    expect(getByText("watch now").closest("a")).toHaveAttribute(
+      "href",
+      "/button"
     );
+    expect(getByText("my list")).toBeVisible();
+  });
 
-    act(() => {
-      getByText("My List").click();
+  describe("Sponsor Logo", () => {
+    test("should render sponsor logo", () => {
+      const { getByText, getByAltText } = render(
+        <Hero
+          title=""
+          description=""
+          image=""
+          heroLink="/hero"
+          buttonLink="/button"
+          sponsorLogo={{
+            link: "/sponsor",
+            image: "/test.png",
+            label: "Test Sponsor",
+          }}
+        />
+      );
+
+      expect(getByText("Test Sponsor")).toBeInTheDocument();
+      expect(getByText("Test Sponsor")).toBeVisible();
+      expect(getByText("Test Sponsor").closest("a")).toHaveAttribute(
+        "href",
+        "/sponsor"
+      );
+      expect(getByAltText("Sponsor Logo")).toBeInTheDocument();
+      expect(getByAltText("Sponsor Logo")).toBeVisible();
     });
 
-    expect(getByText("My List").closest("button")).toHaveClass("in-my-list");
+    test("should render fallback text", () => {
+      const { getByText } = render(
+        <Hero
+          title=""
+          description=""
+          image=""
+          heroLink="/hero"
+          buttonLink="/button"
+          sponsorLogo={{
+            link: "/sponsor",
+            image: "/test.png",
+          }}
+        />
+      );
+
+      expect(getByText("Proud Sponsor")).toBeInTheDocument();
+      expect(getByText("Proud Sponsor")).toBeVisible();
+    });
+  });
+
+  describe("Click Handlers", () => {
+    test("click handler for my list should work", () => {
+      const { getByText } = render(
+        <Hero
+          title="Test Hero State"
+          description=""
+          image=""
+          heroLink=""
+          buttonLink=""
+        />
+      );
+
+      expect(getByText("my list").closest("button")).toHaveClass(
+        "not-in-my-list"
+      );
+
+      act(() => {
+        getByText("my list").click();
+      });
+
+      expect(getByText("my list").closest("button")).toHaveClass("in-my-list");
+    });
+
+    test("click handler for hero should work", () => {
+      // setup
+      const { location } = window;
+      // @ts-ignore
+      delete window.location;
+      window.location = { ...location, assign: jest.fn() };
+
+      const { getByText, container } = render(
+        <Hero
+          title="Title"
+          subTitle="Sub Title"
+          description="Desc"
+          image=""
+          heroLink="/hero"
+          buttonLink="/button"
+          sponsorLogo={{
+            link: "/sponsor",
+            image: "/test.png",
+            label: "Test Sponsor",
+          }}
+        />
+      );
+
+      act(() => {
+        // things that should trigger event
+        getByText("Title").click();
+        getByText("Desc").click();
+        getByText("Sub Title").click();
+        (container.querySelector(".content") as HTMLElement)?.click();
+
+        // things that should not trigger the event
+        getByText("watch now").click();
+        getByText("my list").click();
+        getByText("Test Sponsor").click();
+      });
+
+      expect(window.location.assign).toHaveBeenCalledTimes(4);
+      expect(window.location.assign).toHaveBeenCalledWith("/hero");
+
+      // cleanup
+      window.location = location;
+    });
   });
 
   test("should match snapshots", () => {
@@ -77,6 +206,8 @@ describe("Hero Component", () => {
           image="/test-bg.jpg"
           imageAlternativeText="Pic of a test"
           subTitle="TEST"
+          heroLink="/hero"
+          buttonLink="/button"
         />
       )
       .toJSON();
