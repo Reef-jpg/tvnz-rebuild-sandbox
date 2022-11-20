@@ -11,16 +11,23 @@ type LinkTarget = "_blank" | "_self" | "_parent" | "_top";
 export const Link = ({
   href,
   target,
+  rel,
   children,
   className = "",
 }: {
   href: string;
   target?: LinkTarget;
+  rel?: string;
   children: ReactNode;
   className?: string;
 }) => {
   return (
-    <StyledLink href={href} target={target} className={`link ${className}`}>
+    <StyledLink
+      href={href}
+      target={target}
+      rel={rel}
+      className={`link ${className}`}
+    >
       {children}
     </StyledLink>
   );

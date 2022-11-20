@@ -4,6 +4,7 @@ exports[`Link Component should match snapshots 1`] = `
 <a
   className="link__StyledLink-sc-k5dztf-0 jZDYYg link snapshot test"
   href="/test"
+  rel="noopener"
   target="_parent"
 >
   Snapshot Test

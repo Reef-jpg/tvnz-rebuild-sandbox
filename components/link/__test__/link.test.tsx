@@ -6,9 +6,9 @@ import renderer from "react-test-renderer";
 
 describe("Link Component", () => {
   test("should render", () => {
-    const { container } = render(<Link href="">Test</Link>);
+    const { getByText } = render(<Link href="">Test</Link>);
 
-    expect(container.querySelector(".link")).toBeInTheDocument();
+    expect(getByText("Test")).toBeInTheDocument();
   });
 
   test("should render children (string)", () => {
@@ -56,48 +56,57 @@ describe("Link Component", () => {
   });
 
   test("should have href", () => {
-    const { container } = render(<Link href="/test-link">Test Href</Link>);
+    const { getByText } = render(<Link href="/test-link">Test Href</Link>);
 
-    expect(container.querySelector(".link")).toHaveAttribute(
-      "href",
-      "/test-link"
-    );
+    expect(getByText("Test Href")).toHaveAttribute("href", "/test-link");
   });
 
   test("should have target", () => {
-    const { container } = render(
+    const { getByText } = render(
       <Link href="" target="_blank">
         Test
       </Link>
     );
 
-    expect(container.querySelector(".link")).toHaveAttribute(
-      "target",
-      "_blank"
+    expect(getByText("Test")).toHaveAttribute("target", "_blank");
+  });
+
+  test("should have rel", () => {
+    const { getByText } = render(
+      <Link href="" rel="noopener">
+        Test
+      </Link>
     );
+
+    expect(getByText("Test")).toHaveAttribute("rel", "noopener");
   });
 
   test("should have classNames", () => {
-    const { container } = render(
+    const { getByText } = render(
       <Link href="" className="test">
         Test
       </Link>
     );
 
-    expect(container.querySelector(".link")).toHaveClass("link");
-    expect(container.querySelector(".link")).toHaveClass("test");
+    expect(getByText("Test")).toHaveClass("link");
+    expect(getByText("Test")).toHaveClass("test");
   });
 
   test("should not have undefined classNames", () => {
-    const { container } = render(<Link href="">Test</Link>);
+    const { getByText } = render(<Link href="">Test</Link>);
 
-    expect(container.querySelector(".link")).not.toHaveClass("undefined");
+    expect(getByText("Test")).not.toHaveClass("undefined");
   });
 
   test("should match snapshots", () => {
     const withProps = renderer
       .create(
-        <Link href="/test" target="_parent" className="snapshot test">
+        <Link
+          href="/test"
+          target="_parent"
+          rel="noopener"
+          className="snapshot test"
+        >
           Snapshot Test
         </Link>
       )
