@@ -1,5 +1,5 @@
-import { MouseEventHandler } from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { MouseEventHandler } from 'react';
 
 const StyledButton = styled.button`
   padding: 0.8rem 1.1875rem;

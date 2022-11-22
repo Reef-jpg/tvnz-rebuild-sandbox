@@ -1,10 +1,10 @@
-import { Button } from "../components/button/button";
-import Head from "next/head";
-import { Hero } from "../components/hero/hero";
-import { Link } from "../components/link/link";
-import styled from "styled-components";
-import styles from "../styles/Home.module.css";
-import { useState } from "react";
+import Head from 'next/head';
+import styled from 'styled-components';
+import styles from '../styles/Home.module.css';
+import { Button } from '../components/button/button';
+import { Hero } from '../components/hero/hero';
+import { Link } from '../components/link/link';
+import { useState } from 'react';
 
 const StyledDiv = styled.div`
   margin-top: 3rem;
@@ -40,7 +40,10 @@ export default function Home() {
   return (
     <>
       {/* fake nav so testing looks better */}
-      <div style={{ width: "100%", height: "70px", background: "black" }} />
+      <div
+        id="nav"
+        style={{ width: "100%", height: "60px", background: "black" }}
+      />
 
       {/* homepage hero component */}
       <Hero

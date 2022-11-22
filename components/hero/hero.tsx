@@ -1,8 +1,8 @@
-import { MouseEvent, MouseEventHandler, useState } from "react";
-
-import { Button } from "../button/button";
-import { Link } from "../link/link";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Button } from '../button/button';
+import { Link } from '../link/link';
+import { media } from '../../styles/breakpoints';
+import { MouseEvent, MouseEventHandler, useState } from 'react';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -19,6 +19,8 @@ const StyledDiv = styled.div`
     max-height: 100%;
 
     position: absolute;
+    display: flex;
+    justify-content: center;
 
     img {
       width: 100%;
@@ -49,26 +51,27 @@ const StyledDiv = styled.div`
   /* content styling */
   .content {
     z-index: 1;
-    padding: calc(1rem + 17%) 4.75rem 0 4.75rem; // 17% for image offset
+    padding: calc(1rem + 17%) 4.75rem 0 4.75rem;
 
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     /* text */
     .title {
-      margin: 0;
+      margin: 0.5rem 0 0 0;
       font-weight: 700;
       font-size: 3rem;
       line-height: 1.1;
     }
     .description {
       max-width: 50%;
-      margin: 1rem 0 2rem 0;
+      margin: 1rem 0;
       font-size: 1rem;
       font-weight: 300;
       line-height: 21px;
     }
     .sub-title {
-      margin-bottom: 0.5rem;
       font-weight: 500;
       letter-spacing: 1px;
       line-height: 1.37rem;
@@ -78,8 +81,10 @@ const StyledDiv = styled.div`
     /* buttons */
     .buttons {
       display: flex;
+      flex-wrap: wrap;
 
       .button {
+        margin-top: 1rem;
         margin-right: 1rem;
       }
     }
@@ -105,6 +110,57 @@ const StyledDiv = styled.div`
       .link {
         display: flex;
         flex-direction: column;
+      }
+    }
+  }
+
+  ${media.mobile} {
+    .content {
+      padding: calc(2.5rem + 35%) 13px 0 13px;
+
+      .title {
+        font-size: 2.8125rem;
+      }
+      .sub-title {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .description,
+      .sponsor {
+        display: none;
+      }
+    }
+  }
+
+  ${media.tablet} {
+    .content {
+      padding: calc(2.5rem + 35%) 2rem 0 2rem;
+
+      .title {
+        font-size: 2.8125rem;
+      }
+      .sub-title {
+        font-size: 1rem;
+      }
+
+      .description {
+        display: none;
+      }
+    }
+  }
+
+  ${media.laptop} {
+    .content {
+      padding: calc(1rem + 17%) 4rem 0 4rem;
+
+      .buttons .button {
+        margin-top: 0.5rem;
+      }
+
+      .description,
+      .sponsor {
+        display: inherit;
       }
     }
   }
