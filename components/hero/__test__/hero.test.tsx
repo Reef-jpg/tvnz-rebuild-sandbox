@@ -1,9 +1,9 @@
-import "@testing-library/jest-dom";
+import renderer, { act } from 'react-test-renderer';
+import { Hero } from '../hero';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
-import renderer, { act } from "react-test-renderer";
 
-import { Hero } from "../hero";
-import { render } from "@testing-library/react";
 
 describe("Hero Component", () => {
   test("should render", () => {

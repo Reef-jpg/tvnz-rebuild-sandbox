@@ -2,7 +2,7 @@
 
 exports[`Hero Component should match snapshots 1`] = `
 <div
-  className="hero__StyledDiv-sc-s6ikjf-0 iiIVuu hero"
+  className="hero__StyledDiv-sc-s6ikjf-0 gZDfWG hero"
   onClick={[Function]}
 >
   <div
