@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/breakpoints';
 import { Button } from '../button/button';
 import { Link } from '../link/link';
-import { media } from '../../styles/breakpoints';
 import { MouseEvent, MouseEventHandler, useState } from 'react';
 
 const StyledDiv = styled.div`
@@ -114,7 +114,7 @@ const StyledDiv = styled.div`
     }
   }
 
-  ${media.mobile} {
+  ${breakpoints.mobile} {
     .content {
       padding: calc(2.5rem + 35%) 13px 0 13px;
 
@@ -133,7 +133,7 @@ const StyledDiv = styled.div`
     }
   }
 
-  ${media.tablet} {
+  ${breakpoints.tablet} {
     .content {
       padding: calc(2.5rem + 35%) 2rem 0 2rem;
 
@@ -150,7 +150,7 @@ const StyledDiv = styled.div`
     }
   }
 
-  ${media.laptop} {
+  ${breakpoints.laptop} {
     .content {
       padding: calc(1rem + 17%) 4rem 0 4rem;
 

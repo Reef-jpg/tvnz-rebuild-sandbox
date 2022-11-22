@@ -3,8 +3,6 @@ import { Hero } from '../hero';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-
-
 describe("Hero Component", () => {
   test("should render", () => {
     const { container } = render(
